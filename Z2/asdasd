@@ -1,0 +1,13 @@
+ 
+path = input("Podaj sciezke pliku: ")
+path="/home/student/Pulpit/Zad/Z2/plik.txt"
+plik = open(path)
+
+slownik = {}
+
+for linia in plik.readlines():
+    element = linia.split(":")
+    slownik[element[0]]=element[1]
+
+print slownik
+plik.close()
