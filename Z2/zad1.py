@@ -1,19 +1,17 @@
 #!/usr/bin/env python
 #encoding: utf-8
+import sys
 
-napis = """k1:w1
-k2:w2
-k3:w3"""
+linia = 'Ala ma kota'
 
-slownik = {
-    }
+width = 5
 
-lista = napis.split("\n")
+for index in range(0,len(linia), width):
+    print(linia[index:index+width].center(width))
 
-for linia in napis.splitlines():
-    element = linia.split(":")
-    
-    slownik[element[0]] = element[1]
-    
-print slownik
+
+
+
+
+
 
