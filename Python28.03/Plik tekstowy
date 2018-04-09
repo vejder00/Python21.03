@@ -1,0 +1,70 @@
+ 
+#!/usr/bin/env python
+#encoding: utf-8
+napis = u'   TEST '
+# strip usuwa biale znaki
+print(napis.strip().center(30))
+print(napis.capitalize())
+print(napis.strip().capitalize())
+print(napis.lower().islower())
+napis.strip()
+print(napis.startswith('TE'))
+print(napis.ljust(30))
+napis2 = u'Test test'
+
+print(napis2.swapcase())
+print(napis2.title())
+print(napis2.title().istitle())
+
+print 'test' in napis2
+print (napis2.replace('test','XYZ'))
+
+
+
+import re
+regex_email = re.compile(
+    r'''(?P<adres>
+         (?P<login>[\w+.+])
+         @
+         (?P<domena>\w+(\.\w+)+)
+    )''',
+    re.IGNORECASE | re.VERBOSE
+)
+    
+tekst = u'mail1.@gmail.com, 
+"jan.kowalski@poczta.pl"'
+
+for match_object in regex_email.finditer(tekst):
+    print match_object.groupdict()
+    
+    
+    
+    import json
+
+slownik = {
+    'k1': 'w1',
+    'k2': 'w2',
+    3: [1,2,3],
+    
+}
+json_str = json.dumps(slownik)
+
+print(isinstance(json_str,basestring))
+slownik2 = json.loads(json_str)
+print slownik2.items()
+
+
+
+import pickle
+
+slownik = {
+    'k1': 'w1',
+    'k2': 'w2',
+    3: [1,2,3],
+    
+}
+pickle_str = json.dumps(slownik)
+
+print(isinstance(pickle_str,basestring))
+slownik2 = pickle.loads(pickle_str)
+print slownik2.items()
