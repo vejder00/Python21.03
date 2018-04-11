@@ -1,0 +1,81 @@
+#!/usr/bin/env python
+#encoding: utf-8
+
+def divide(x,y):
+    try:
+        result = x/y
+    except ZeroDivisionError:
+        print('Wyjatek-dzielenie przez zero')
+    else:
+        print('Brak Wyjatku')
+        return result
+    finally:
+        print('Koniec funkcji')
+        
+print(divide(4,2))
+print(divide(4,0))
+
+----------------------
+
+#!/usr/bin/env python
+#encoding: utf-8
+
+def divide(x,y):
+    try:
+        result = x/y
+    except (ZeroDivisionError, TypeError) as ex:
+        print('Wystapil nieoczekiwany blad')
+        print(ex)
+    else:
+        print('Brak Wyjatku')
+        return result
+    finally:
+        print('Koniec funkcji')
+        
+print(divide(4,'test'))
+
+
+--------------------------------
+
+#!/usr/bin/env python
+#encoding: utf-8
+
+class Wyjatek(Exception):
+    pass 
+
+try:
+    raise Wyjatek('Wystapil blad')
+except Wyjatek as w:
+    print(w)
+-----------------------------------------
+#!/usr/bin/env python
+#encoding: utf-8
+
+import urllib2
+response = urllib2.urlopen('http://python.org')
+html = response.read()
+print(html)
+
+--------------------------------------------
+
+#!/usr/bin/env python
+#encoding: utf-8
+
+from xml.dom import minidom
+
+doc = minidom.parse('test.xml')
+
+els = doc.getElementsByTagName('el')
+
+for el in els:
+    sid = el.getAttribute('id')
+    test = el.getElementsByTagName('test')[0]
+    print ('id: %s, val: %s' %(sid,test.firstChild.data))
+    
+-------------------------------------------------------
+virtualenv env_p1
+source env_p1/bin/activate
+pip instal request
+deactivate
+
+
