@@ -1,0 +1,10 @@
+#!/usr/bin/env python
+
+import subprocess
+import os
+
+with open(os.devnull, 'w') as devnull:
+    out1 = subprocess.call(['ech', 'Hello World!'], stderr=devnull , shell=False)
+#out2 = subprocess.check_output(['echo', 'Hello World!'], shell=False)
+#print(out1)
+#print('Wynik: '+out2)
